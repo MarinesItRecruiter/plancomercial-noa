@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Randstad NOA · Plan Comercial y Posicionamiento 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#003865;--blue:#004B93;--mid:#1A6BB5;--sky:#4A9FD5;
+  --pale:#D6E8F7;--ice:#EEF5FB;--orange:#E84D1C;
+  --text:#1C2B3A;--muted:#5A7A94;--border:#C8DFF0;--bg:#F4F8FC;
+  --teal:#0C6E56;--teal-lt:#DDF0EB;--white:#fff;
+  --amber-lt:#FEF3E2;--amber-dk:#854F0B;
+  --red-lt:#FDECEA;--red-dk:#A32D2D;
+  --green-lt:#E6F4EB;--green-dk:#1A6B35;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',-apple-system,sans-serif;background:var(--bg);color:var(--text);font-size:14px;line-height:1.6}
+
+/* NAV */
+.topbar{position:fixed;top:0;left:0;right:0;z-index:200;height:54px;background:var(--navy);display:flex;align-items:center;padding:0 2rem;gap:1.5rem}
+.logo-wrap{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.logo-r{width:30px;height:30px;border-radius:6px;background:var(--orange);display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:700;color:#fff}
+.brand-name{font-size:13px;font-weight:600;color:#fff;line-height:1.2}
+.brand-sub{font-size:10px;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:.05em}
+.nav-links{display:flex;gap:2px}
+.nb{padding:6px 13px;font-size:12px;font-weight:500;color:rgba(255,255,255,.6);background:transparent;border:none;border-radius:6px;cursor:pointer;transition:all .15s;white-space:nowrap}
+.nb:hover{background:rgba(255,255,255,.1);color:#fff}
+.nb.active{background:rgba(255,255,255,.16);color:#fff}
+.nav-date{margin-left:auto;font-size:11px;color:rgba(255,255,255,.4)}
+
+/* PAGES */
+.page{display:none;padding:74px 2.5rem 3rem;max-width:1000px;margin:0 auto;animation:fi .2s ease}
+.page.active{display:block}
+@keyframes fi{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+
+/* HEADINGS */
+.sh{margin-bottom:1.5rem;padding-bottom:.875rem;border-bottom:2px solid var(--pale)}
+.sh h1{font-size:20px;font-weight:700;color:var(--navy);margin-bottom:3px}
+.sh p{font-size:13px;color:var(--muted)}
+
+/* COVER */
+.cover{background:var(--navy);border-radius:16px;padding:2.5rem;margin-bottom:1.5rem;position:relative;overflow:hidden}
+.cover::after{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(74,159,213,.1);pointer-events:none}
+.ctag{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin-bottom:12px;display:block}
+.ctitle{font-size:28px;font-weight:700;color:#fff;line-height:1.22;margin-bottom:10px}
+.ctitle span{color:var(--sky)}
+.csub{font-size:13px;color:rgba(255,255,255,.62);max-width:560px;line-height:1.65;margin-bottom:1.5rem}
+.cpills{display:flex;flex-wrap:wrap;gap:6px}
+.cpill{font-size:11px;font-weight:500;padding:3px 11px;border-radius:20px;border:1px solid rgba(255,255,255,.18);color:rgba(255,255,255,.68)}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:1.25rem}
+.met{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:.875rem;text-align:center}
+.met-val{font-size:18px;font-weight:700;color:var(--blue)}
+.met-lbl{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.4}
+
+/* GRIDS */
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:1rem}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:1rem}
+
+/* CARDS */
+.card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.25rem}
+.card-ey{font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:5px}
+.card-ti{font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px}
+.card-bo{font-size:13px;color:var(--muted);line-height:1.65}
+
+/* CALLOUTS */
+.cl{border-radius:10px;padding:1rem 1.25rem;margin-bottom:12px;border-left:4px solid}
+.cl-blue{background:var(--ice);border-color:var(--blue)}
+.cl-teal{background:var(--teal-lt);border-color:var(--teal)}
+.cl-orange{background:var(--amber-lt);border-color:var(--orange)}
+.cl-sky{background:#EBF5FC;border-color:var(--sky)}
+.cl-green{background:var(--green-lt);border-color:var(--teal)}
+.cl-red{background:var(--red-lt);border-color:var(--red-dk)}
+.cl-ti{font-size:13px;font-weight:600;margin-bottom:5px}
+.cl-blue .cl-ti{color:var(--blue)}
+.cl-teal .cl-ti{color:var(--teal)}
+.cl-orange .cl-ti{color:#B33B12}
+.cl-sky .cl-ti{color:var(--mid)}
+.cl-green .cl-ti{color:var(--green-dk)}
+.cl-red .cl-ti{color:var(--red-dk)}
+.cl-bo{font-size:13px;color:var(--text);line-height:1.7}
+.cl-bo a{color:var(--blue);text-decoration:none;font-size:12px;word-break:break-all}
+.cl-bo a:hover{text-decoration:underline}
+
+/* SOURCE BADGE */
+.source{display:inline-flex;align-items:center;gap:4px;font-size:10px;font-weight:600;padding:2px 8px;border-radius:20px;background:var(--pale);color:var(--blue);text-decoration:none;margin-top:4px;border:1px solid var(--border)}
+.source:hover{background:var(--ice)}
+
+/* PHASES */
+.phase{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.ph-hd{display:flex;align-items:center;justify-content:space-between;padding:.875rem 1.25rem}
+.ph1{background:linear-gradient(90deg,#E8F2FA,#F4F8FC)}
+.ph2{background:linear-gradient(90deg,#DDF0EB,#F4F8FC)}
+.ph3{background:linear-gradient(90deg,#FEF3E2,#F4F8FC)}
+.ph-lbl{font-size:10px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;margin-bottom:2px}
+.ph-name{font-size:15px;font-weight:700}
+.ph-badge{font-size:11px;font-weight:600;padding:3px 11px;border-radius:20px;white-space:nowrap}
+.ph-bd{padding:.875rem 1.25rem 1.25rem}
+.ph-intro{font-size:13px;color:var(--muted);margin-bottom:12px;line-height:1.6}
+.alist{list-style:none}
+.ai{display:flex;gap:10px;padding:8px 0;border-bottom:1px solid var(--border);font-size:13px;color:var(--muted);line-height:1.55;align-items:flex-start}
+.ai:last-child{border-bottom:none}
+.adot{width:7px;height:7px;border-radius:50%;margin-top:5px;flex-shrink:0}
+.ai strong{color:var(--text);font-weight:600}
+
+/* TABLE */
+.tw{border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:1.25rem}
+table{width:100%;border-collapse:collapse}
+th{background:var(--navy);color:#fff;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:10px 14px;text-align:left}
+td{padding:10px 14px;font-size:13px;color:var(--muted);border-bottom:1px solid var(--border);vertical-align:top;line-height:1.5}
+tr:last-child td{border-bottom:none}
+tr:nth-child(even) td{background:var(--ice)}
+td strong{color:var(--text);font-weight:600}
+td a{color:var(--blue);font-size:12px;text-decoration:none;word-break:break-all}
+td a:hover{text-decoration:underline}
+
+/* CALENDAR */
+.cal-mo{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;margin-bottom:14px}
+.cal-hd{background:var(--navy);padding:11px 16px;display:flex;align-items:center;justify-content:space-between}
+.cal-hd-name{font-size:14px;font-weight:700;color:#fff}
+.cal-hd-tag{font-size:11px;font-weight:600;padding:3px 10px;border-radius:20px;background:rgba(255,255,255,.14);color:rgba(255,255,255,.88)}
+.cal-row{padding:14px 16px;border-bottom:1px solid var(--border);display:grid;grid-template-columns:110px 1fr;gap:14px}
+.cal-row:last-child{border-bottom:none}
+.cal-row.noa-row{background:var(--ice)}
+.cr-week{font-size:11px;font-weight:700;color:var(--blue);text-transform:uppercase;letter-spacing:.04em}
+.cr-type{font-size:10px;font-weight:600;color:var(--muted);margin-top:2px;text-transform:uppercase;letter-spacing:.04em}
+.cr-series{font-size:10px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--orange);margin-bottom:4px}
+.cr-series.noa{color:var(--blue)}
+.cr-title{font-size:14px;font-weight:600;color:var(--text);margin-bottom:5px;line-height:1.35}
+.cr-hook{font-size:12px;color:var(--muted);line-height:1.6;border-left:2px solid var(--pale);padding-left:8px;font-style:italic;margin-bottom:7px}
+.cr-tags{display:flex;flex-wrap:wrap;gap:4px}
+.tag{font-size:10px;font-weight:500;padding:2px 7px;border-radius:20px;border:1px solid var(--border);color:var(--muted)}
+.noa-badge{display:inline-block;font-size:10px;font-weight:700;padding:2px 7px;border-radius:4px;background:#E8F0FB;color:var(--blue);margin-left:6px;vertical-align:middle}
+
+/* COMPETITOR LINK */
+.comp-link{display:inline-flex;align-items:center;gap:3px;font-size:11px;color:var(--blue);text-decoration:none;padding:1px 0}
+.comp-link:hover{text-decoration:underline}
+
+/* FOOTER */
+.pf{margin-top:2.5rem;padding-top:.875rem;border-top:1px solid var(--border);display:flex;justify-content:space-between;font-size:11px;color:var(--muted)}
+
+/* GANCHO STRIP */
+.gancho{padding:10px 14px;border-radius:var(--border-radius,8px);margin-bottom:1.25rem;background:var(--amber-lt);border-left:3px solid var(--orange)}
+.gancho strong{font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--amber-dk);display:block;margin-bottom:3px}
+.gancho span{font-size:13px;color:#5A3508}
+
+/* MONTH NAV */
+.mnav{display:flex;gap:6px;margin-bottom:1.25rem}
+.mn{padding:6px 14px;font-size:12px;border:0.5px solid var(--border);border-radius:6px;cursor:pointer;background:transparent;color:var(--muted);transition:all .15s}
+.mn:hover{background:var(--ice);color:var(--text)}
+.mn.active{background:var(--text);color:var(--white);border-color:var(--text)}
+.monthblock{display:none}
+.monthblock.active{display:block}
+
+/* OBJECTIVE PILLS */
+.obj-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:1.25rem}
+.obj-pill{background:var(--white);border:1px solid var(--border);border-radius:10px;padding:.75rem;text-align:center}
+.obj-icon{font-size:18px;margin-bottom:5px}
+.obj-text{font-size:12px;color:var(--muted);line-height:1.4}
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <div class="logo-wrap">
+    <div class="logo-r">R</div>
+    <div>
+      <div class="brand-name">Randstad Argentina</div>
+      <div class="brand-sub">Plan Comercial NOA · 2026</div>
+    </div>
+  </div>
+  <div class="nav-links">
+    <button class="nb active" onclick="go('p1',this)">Contexto</button>
+    <button class="nb" onclick="go('p2',this)">Estrategia</button>
+    <button class="nb" onclick="go('p3',this)">Canales</button>
+    <button class="nb" onclick="go('p4',this)">Calendario</button>
+    <button class="nb" onclick="go('p5',this)">Oportunidades</button>
+  </div>
+  <div class="nav-date">2026</div>
+</nav>
+
+
+<!-- ══════════════════════════════════════
+     P1 · CONTEXTO
+══════════════════════════════════════ -->
+<div id="p1" class="page active">
+
+  <div class="cover">
+    <span class="ctag">Randstad Argentina · Región NOA</span>
+    <div class="ctitle">Plan Comercial y<br><span>Posicionamiento NOA</span></div>
+    <div class="csub">Posicionar a Randstad como el referente en talento e industrias del NOA, generando visibilidad, relaciones estratégicas y oportunidades comerciales a través de contenido, inteligencia de mercado y construcción de comunidad.</div>
+    <div class="cpills">
+      <span class="cpill">Salta · Jujuy · Tucumán · Catamarca · Santiago del Estero</span>
+      <span class="cpill">NOA Talks desde LinkedIn Randstad</span>
+      <span class="cpill">LinkedIn como canal principal</span>
+    </div>
+  </div>
+
+  <div class="metrics">
+    <div class="met"><div class="met-val">USD 7.705M</div><div class="met-lbl">inversiones anunciadas en el NOA (minería, energía y agroindustria)</div></div>
+    <div class="met"><div class="met-val">11.150</div><div class="met-lbl">nuevos empleos proyectados a partir de las inversiones</div></div>
+    <div class="met"><div class="met-val">5 provincias</div><div class="met-lbl">sin voz activa de Randstad hoy</div></div>
+    <div class="met"><div class="met-val">745+</div><div class="met-lbl">empresas cerradas en el NOA</div></div>
+  </div>
+
+  <div class="cl cl-blue">
+    <div class="cl-ti">Fuente de los datos y noticias relevantes</div>
+    <div class="cl-bo">
+      Los USD 7.705M son <strong>inversiones totales anunciadas en el NOA</strong>, no solo minería. Incluyen el triángulo del litio (Salta, Jujuy, Catamarca), agroindustria (Tucumán) y energías renovables.<br><br>
+      📰 <strong>Informe IERAL / Ámbito Financiero (mayo 2025):</strong><br>
+      <a href="https://www.ambito.com/energia/el-nuevo-mapa-inversiones-argentina-mineria-y-litio-concentran-los-proyectos-y-el-empleo-n6277231" target="_blank">ambito.com — El nuevo mapa de inversiones: minería y litio concentran los proyectos</a><br><br>
+      📰 <strong>Banco Macro y el sector minero del NOA (2026):</strong><br>
+      <a href="https://www.lagaceta.com.ar/nota/1139894/servicios-empresas/banco-macro-reafirma-liderazgo-sector-minero-noa-britday-2026.html" target="_blank">lagaceta.com.ar — Banco Macro reafirma liderazgo en sector minero NOA</a><br><br>
+      📰 <strong>Salta tiene el mayor desempleo del NOA:</strong><br>
+      <a href="https://www.todojujuy.com/sociedad/salta-tiene-el-mayor-nivel-desempleo-el-noa-n287526" target="_blank">todojujuy.com — Salta tiene el mayor nivel de desempleo del NOA</a><br><br>
+      📰 <strong>Empleo femenino en minería creció 10,6% en 2024 (CAEM, mayo 2025):</strong><br>
+      <a href="https://panorama-minero.com/es/news/santa-cruz-san-juan-y-el-noa-la-geografia-detras-del-record-minero-de-enero-2026" target="_blank">panorama-minero.com — Santa Cruz, San Juan y el NOA: la geografía detrás del récord minero</a>
+    </div>
+  </div>
+
+  <div class="sh" style="margin-top:1rem">
+    <h1>Sectores clave del NOA para Randstad</h1>
+    <p>Dónde están las oportunidades reales de posicionamiento y negocio</p>
+  </div>
+
+  <div class="g2">
+    <div class="card" style="border-top:3px solid var(--blue)">
+      <div class="card-ey" style="color:var(--blue)">Minería del litio · Salta, Jujuy, Catamarca</div>
+      <div class="card-ti">El triángulo del litio</div>
+      <div class="card-bo">Proyectos activos: Cauchari-Olaroz, Sal de Vida, Tres Quebradas. Río Tinto aprobó en mayo 2025 un proyecto en Salta por USD 2.500M bajo RIGI. El mayor potencial laboral está en la cadena de proveedores y servicios alrededor de los proyectos. → Posiciona <strong>Professional</strong></div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--teal)">
+      <div class="card-ey" style="color:var(--teal)">Agroindustria · Tucumán, Salta, Stgo. del Estero</div>
+      <div class="card-ti">El motor histórico del NOA</div>
+      <div class="card-bo">Tucumán es el hub: azúcar, cítricos, soja. La cosecha de caña (julio-agosto) genera el pico de demanda de personal operativo de la región. Alta rotación y necesidad de personal masivo temporario. → Posiciona <strong>OTS</strong> y <strong>Professional</strong></div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--sky)">
+      <div class="card-ey" style="color:var(--sky)">Energías renovables · Puna</div>
+      <div class="card-ti">Proyectos solares bajo RIGI</div>
+      <div class="card-bo">La Puna tiene índices de radiación solar excepcionales. Proyectos de gran escala atraen capital extranjero. Demanda de perfiles técnicos que escasean localmente. → Posiciona <strong>Professional</strong></div>
+    </div>
+    <div class="card" style="border-top:3px solid var(--orange)">
+      <div class="card-ey" style="color:var(--orange)">Transformación digital · Todas las provincias</div>
+      <div class="card-ti">IA y digitalización llegando al NOA</div>
+      <div class="card-bo">Empresas de agroindustria y manufactura comienzan procesos de digitalización. Demanda creciente de perfiles tech que el mercado local no cubre. → Posiciona <strong>Digital</strong></div>
+    </div>
+  </div>
+
+  <div class="sh" style="margin-top:1rem">
+    <h1>Competencia identificada en el NOA</h1>
+    <p>Investigación propia · junio 2026 · Computrabajo, búsqueda web y guías locales</p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Provincia</th><th>Consultora</th><th>Descripción</th><th>Enlace</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Salta</strong></td><td>Capital Humano Salta</td><td>+20 años en selección y capacitación en el NOA. Su directora lideró Manpower Salta y Jujuy por 10 años. Colabora con UCASAL. <strong>Competidora clave.</strong></td><td><a href="https://capitalhumanosalta.com/web/" target="_blank">capitalhumanosalta.com</a></td></tr>
+        <tr><td><strong>Salta</strong></td><td>Brücke Talentos</td><td>Consultora de selección con presencia en Salta.</td><td><a href="https://brucketalentos.com/" target="_blank">brucketalentos.com</a></td></tr>
+        <tr><td><strong>Salta</strong></td><td>Bayton</td><td>Empresa nacional de servicios de personal con presencia en la región.</td><td><a href="https://bayton.com/" target="_blank">bayton.com</a></td></tr>
+        <tr><td><strong>Salta</strong></td><td>Grupo Gestión</td><td>Consultora de RRHH con presencia en el NOA.</td><td><a href="https://www.grupo-gestion.com.ar/" target="_blank">grupo-gestion.com.ar</a></td></tr>
+        <tr><td><strong>Salta</strong></td><td>Lumi People</td><td>Consultora de selección y desarrollo organizacional.</td><td><a href="https://www.lumipeoplearg.com/" target="_blank">lumipeoplearg.com</a></td></tr>
+        <tr><td><strong>Salta</strong></td><td>Gestión de Talentos</td><td>Consultora local de recursos humanos.</td><td><a href="https://www.gestiondetalentos.com.ar/" target="_blank">gestiondetalentos.com.ar</a></td></tr>
+        <tr><td><strong>Jujuy</strong></td><td>SEL Consultora (SRL)</td><td>Fundada en 2010 en San Salvador de Jujuy. Opera en Jujuy, Tucumán, Salta y Santiago del Estero. Selección, coaching, psicotécnicas. 22 años de experiencia.</td><td>—</td></tr>
+        <tr><td><strong>Tucumán</strong></td><td>Testa Group RH</td><td>Consultora de RRHH con presencia en Tucumán.</td><td><a href="https://testagrouprh.com/" target="_blank">testagrouprh.com</a></td></tr>
+        <tr><td><strong>Tucumán</strong></td><td>Abbate y Asoc.</td><td>Consultoría en RRHH y gestión organizacional en Tucumán.</td><td><a href="https://www.abbateyasoc.com.ar/" target="_blank">abbateyasoc.com.ar</a></td></tr>
+        <tr><td><strong>Tucumán</strong></td><td>Innovar RH</td><td>Consultora local de selección y capacitación.</td><td><a href="https://www.innovarrhh.com.ar/" target="_blank">innovarrhh.com.ar</a></td></tr>
+        <tr><td><strong>Tucumán</strong></td><td>Consultora FET</td><td>Respaldada por la Federación Económica de Tucumán. Acceso directo al empresariado tucumano.</td><td>—</td></tr>
+        <tr><td><strong>NOA general</strong></td><td>Consultores de Empresas</td><td>Empresa nacional con presencia declarada en Salta, Jujuy, Catamarca y La Rioja. Base en Córdoba.</td><td>—</td></tr>
+        <tr><td><strong>Nacional</strong></td><td>Manpower</td><td>Presente en Tucumán. La ex gerente de Manpower Salta/Jujuy hoy lidera Capital Humano Salta.</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="cl cl-orange">
+    <div class="cl-ti">Oportunidad: Catamarca y La Rioja son mercados prácticamente vírgenes</div>
+    <div class="cl-bo">No se encontró ninguna consultora de RRHH local relevante en Catamarca ni en La Rioja (Argentina) durante la investigación. Catamarca tiene el proyecto minero Agua Rica (Glencore) activo y creciente demanda de talento técnico sin oferta organizada de consultoría.</div>
+  </div>
+
+  <div class="pf"><span>Randstad Argentina · Plan Comercial y Posicionamiento NOA</span><span>Junio 2026</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     P2 · ESTRATEGIA
+══════════════════════════════════════ -->
+<div id="p2" class="page">
+
+  <div class="sh">
+    <h1>La estrategia: tres fases, una lógica</h1>
+    <p>Cada fase construye sobre la anterior. Diseñada para ser ejecutable sin descuidar el trabajo de consultoría.</p>
+  </div>
+
+  <div class="cl cl-blue">
+    <div class="cl-ti">Principio rector</div>
+    <div class="cl-bo">No posicionar "Randstad Professional / OTS / Digital" — son nombres internos que el mercado del NOA no entiende. <strong>Posicionar problemáticas:</strong> cuando hablo de minería posiciono Professional, cuando hablo de cosecha masiva posiciono OTS, cuando hablo de IA posiciono Digital. Sin decirlo explícitamente. La marca se construye siendo útil primero.</div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-hd ph1">
+      <div>
+        <div class="ph-lbl" style="color:var(--blue)">Fase 1 · Meses 1 a 3</div>
+        <div class="ph-name" style="color:var(--navy)">Hacer visible a Randstad NOA</div>
+      </div>
+      <span class="ph-badge" style="background:var(--blue);color:#fff">Arranca ya</span>
+    </div>
+    <div class="ph-bd">
+      <p class="ph-intro">Objetivo: que exista una voz consistente que diga "Randstad está en el NOA y entiende esta región". Constancia antes que volumen.</p>
+      <ul class="alist">
+        <li class="ai"><div class="adot" style="background:var(--blue)"></div><div><strong>NOA Talks — 1 por mes desde la página de Randstad en LinkedIn.</strong> Newsletter de análisis regional que también se envía por mail a referentes de RRHH del NOA. Arranca el 15 de junio con el tema Mujeres en la Minería.</div></li>
+        <li class="ai"><div class="adot" style="background:var(--blue)"></div><div><strong>3 posts propios por mes desde el perfil personal.</strong> Post 1: gancho del mes o contenido de Randstad. Post 2: reflexión que posiciona a Randstad en el NOA. Post 3: testimonio de candidato/cliente o storytelling de campo.</div></li>
+        <li class="ai"><div class="adot" style="background:var(--blue)"></div><div><strong>Perfil de LinkedIn optimizado antes del primer post.</strong> Headline con foco en NOA + Randstad. Sección "Acerca de" con narrativa regional. Banner.</div></li>
+        <li class="ai"><div class="adot" style="background:var(--blue)"></div><div><strong>Las visitas a clientes se convierten en contenido.</strong> Cada visita ya existente se transforma en un post de campo: qué sector, qué desafío de talento, qué aprendizaje.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="ph-hd ph2">
+      <div>
+        <div class="ph-lbl" style="color:var(--teal)">Fase 2 · Meses 4 a 6</div>
+        <div class="ph-name" style="color:#0C4A38">Construir autoridad con activos propios</div>
+      </div>
+      <span class="ph-badge" style="background:var(--teal);color:#fff">Primer evento</span>
+    </div>
+    <div class="ph-bd">
+      <p class="ph-intro">Objetivo: que Randstad NOA tenga un activo de inteligencia de mercado reconocible en la región.</p>
+      <ul class="alist">
+        <li class="ai"><div class="adot" style="background:var(--teal)"></div><div><strong>Post propio sobre salarios en el NOA.</strong> Basado en el reporte salarial nacional de Randstad, publicar un post personal con los datos adaptados al mercado regional: qué se paga en Salta, Tucumán, Jujuy por sector y perfil.</div></li>
+        <li class="ai"><div class="adot" style="background:var(--teal)"></div><div><strong>Evento presencial — agosto o septiembre en Salta.</strong> Desayuno de trabajo, por invitación, 20-25 personas. Directivos de empresas del NOA generados como contactos en los primeros 3 meses. No un lanzamiento corporativo — una conversación entre referentes.</div></li>
+        <li class="ai"><div class="adot" style="background:var(--teal)"></div><div><strong>Feria de Empleo UCASAL.</strong> Presencia activa de Randstad. Un evento = 3 posts: convocatoria previa, historia en tiempo real, reflexión post-evento.</div></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="pf"><span>Randstad Argentina · Plan Comercial y Posicionamiento NOA</span><span>Junio 2026</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     P3 · CANALES
+══════════════════════════════════════ -->
+<div id="p3" class="page">
+
+  <div class="sh">
+    <h1>Canales y cómo funcionan juntos</h1>
+    <p>La regla de los 3 usos: se escribe una vez, se publica en tres formatos para tres audiencias distintas.</p>
+  </div>
+
+  <div class="cl cl-green">
+    <div class="cl-ti">La regla de los 3 usos</div>
+    <div class="cl-bo">Cada pieza de contenido vive en 3 formatos: el <strong>post en LinkedIn</strong> (alcance orgánico), el <strong>NOA Talks mensual</strong> que expande el tema (llega a quienes ya eligieron seguir el contenido), y el <strong>banco de datos</strong> que alimenta futuros posts sobre salarios y tendencias. Se escribe una vez, llega a tres audiencias distintas.</div>
+  </div>
+
+  <div class="sh" style="margin-top:1.25rem">
+    <h1>Los 4 contenidos mensuales</h1>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Tipo</th><th>Desde</th><th>Descripción</th><th>Objetivo</th></tr></thead>
+      <tbody>
+        <tr><td><strong>NOA Talks (1/mes)</strong></td><td>Página Randstad LinkedIn</td><td>Newsletter de análisis regional. Se publica desde el perfil corporativo de Randstad y también se envía por mail directo a referentes de RRHH del NOA.</td><td>Autoridad de marca</td></tr>
+        <tr><td><strong>Post 1 — Gancho del mes</strong></td><td>Perfil personal</td><td>Replica contenido ya elaborado por el equipo de Randstad Argentina, adaptado con contexto y perspectiva del NOA.</td><td>Visibilidad y autoridad</td></tr>
+        <tr><td><strong>Post 2 — Reflexión</strong></td><td>Perfil personal</td><td>Opinión o reflexión que posiciona a Randstad en el NOA de forma natural. Sin sonar a publicidad. Genera comentarios y conversación.</td><td>Humanización y confianza</td></tr>
+        <tr><td><strong>Post 3 — Testimonio / campo</strong></td><td>Perfil personal</td><td>Testimonio de candidato o cliente cuando esté disponible. Si no, storytelling de una situación de campo (sin revelar datos confidenciales).</td><td>Prueba social y cercanía</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="sh" style="margin-top:1.25rem">
+    <h1>Canales complementarios</h1>
+  </div>
+
+  <div class="g2">
+    <div class="card" style="border-top:3px solid #E1306C">
+      <div class="card-ey" style="color:#E1306C">Instagram · Randstad Argentina</div>
+      <div class="card-ti">Candidatos y jóvenes profesionales del NOA</div>
+      <div class="card-bo">Coordinar con Marketing desde la Fase 1. Aportar desde el NOA: fotos de visitas a empresas, eventos, oportunidades laborales en la región y testimonios de candidatos colocados.</div>
+    </div>
+    <div class="card" style="border-top:3px solid #000">
+      <div class="card-ey" style="color:#555">TikTok</div>
+      <div class="card-ti">Candidatos jóvenes y universitarios del NOA</div>
+      <div class="card-bo">Activar en Fase 2 o 3, no en el arranque. Contenido posible: tendencias laborales, tips de entrevista, "un día recorriendo el NOA". Requiere formato y tiempo distintos.</div>
+    </div>
+  </div>
+
+  <div class="sh" style="margin-top:1.25rem">
+    <h1>Fechas importantes por industria — ganchos verificados del año</h1>
+    <p>Solo fechas con fuente confirmada. Sin inventar.</p>
+  </div>
+
+  <div class="tw">
+    <table>
+      <thead><tr><th>Fecha</th><th>Industria</th><th>Gancho de contenido</th><th>Fuente</th></tr></thead>
+      <tbody>
+        <tr><td><strong>8 de marzo</strong></td><td>RRHH / todas</td><td>Día Internacional de la Mujer — liderazgo femenino en el NOA</td><td>Internacional</td></tr>
+        <tr><td><strong>22 de abril</strong></td><td>Construcción</td><td>Día del Trabajador de la Construcción — proyectos de infraestructura minera y energética en el NOA</td><td><a href="https://www.diariodemocracia.com/vida/sociedad/337280-hoy-es-el-dia-del-trabajador-de-la-construccion-en/" target="_blank">Fuente UOCRA / CCT 76/75</a></td></tr>
+        <tr><td><strong>7 de mayo</strong></td><td>Minería</td><td>Día Nacional de la Minería Argentina — litio, energía y talento técnico en el NOA</td><td><a href="http://aoma-olavarria.com.ar/se-celebra-hoy-28-de-octubre-el-dia-del-trabajador-minero/" target="_blank">Fuente AOMA</a></td></tr>
+        <tr><td><strong>15 de junio</strong></td><td>Minería</td><td>Día Internacional de la Mujer en la Minería — NOA Talks #1</td><td>Internacional</td></tr>
+        <tr><td><strong>Julio–agosto</strong></td><td>Agroindustria</td><td>Cosecha de caña en Tucumán — pico de demanda de personal OTS</td><td>Estacional verificado</td></tr>
+        <tr><td><strong>2 de septiembre</strong></td><td>Industria</td><td>Día de la Industria Argentina — impacto en agroindustria y manufactura del NOA</td><td><a href="https://faya.unse.edu.ar/index.php/institucional/2025/dia-de-la-industria-argentina/" target="_blank">UNSE / Casa Rosada</a></td></tr>
+        <tr><td><strong>26 de septiembre</strong></td><td>Comercio</td><td>Día del Empleado de Comercio — retail y consumo masivo del NOA</td><td><a href="https://www.lanacion.com.ar/economia/dia-del-empleado-de-comercio-2025-como-funcionan-supermercados-y-shoppings-hoy-nid29092025/" target="_blank">Ley N° 26.541 / La Nación</a></td></tr>
+        <tr><td><strong>Septiembre</strong></td><td>Universitario</td><td>Feria de Empleo UCASAL — empleabilidad en el NOA</td><td>UCASAL</td></tr>
+        <tr><td><strong>7 de octubre</strong></td><td>Todas</td><td>Día Mundial del Trabajo Decente — condiciones laborales en la región</td><td>OIT</td></tr>
+        <tr><td><strong>8 de octubre</strong></td><td>Agro</td><td>Día del Trabajador Rural — sector agropecuario del NOA</td><td><a href="https://servicios.infoleg.gob.ar/infolegInternet/anexos/95000-99999/95035/norma.htm" target="_blank">Resolución M.T. / Infoleg</a></td></tr>
+        <tr><td><strong>28 de octubre</strong></td><td>Minería</td><td>Día del Trabajador Minero — homenaje a los trabajadores del litio y la minería del NOA</td><td><a href="https://unjudiario.unju.edu.ar/agenda-publica/28-de-octubre-dia-del-trabajador-minero" target="_blank">AOMA / UNJu Diario</a></td></tr>
+        <tr><td><strong>Noviembre</strong></td><td>Retail / consumo</td><td>Black Friday — pico de contrataciones temporarias OTS en el NOA</td><td>Estacional</td></tr>
+        <tr><td><strong>Diciembre</strong></td><td>Retail / turismo</td><td>Navidad + inicio temporada turística en Salta y Jujuy</td><td>Estacional</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="pf"><span>Randstad Argentina · Plan Comercial y Posicionamiento NOA</span><span>Junio 2026</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     P4 · CALENDARIO
+══════════════════════════════════════ -->
+<div id="p4" class="page">
+
+  <div class="sh">
+    <h1>Calendario de contenido — Junio a Agosto 2026</h1>
+    <p>4 publicaciones por mes. NOA Talks desde la página de Randstad. Posts propios desde el perfil personal. Hooks listos para usar.</p>
+  </div>
+
+  <div class="cl cl-sky" style="margin-bottom:1.25rem">
+    <div class="cl-ti">Cómo leer el calendario</div>
+    <div class="cl-bo">Las filas en <strong>azul claro</strong> son los NOA Talks — van desde la página corporativa de Randstad en LinkedIn y por mail a referentes. Las otras tres son posts del perfil personal. El gancho del mes conecta los 4 contenidos temáticamente.</div>
+  </div>
+
+  <div class="mnav">
+    <button class="mn active" onclick="showMo('jun',this)">Junio</button>
+    <button class="mn" onclick="showMo('jul',this)">Julio</button>
+    <button class="mn" onclick="showMo('ago',this)">Agosto</button>
+  </div>
+
+  <!-- JUNIO -->
+  <div id="mo-jun" class="monthblock active">
+    <div class="gancho">
+      <strong>Gancho del mes — Junio</strong>
+      <span>Mujeres en la minería del NOA · Fecha ancla: 15 de junio, Día Internacional de la Mujer en la Minería</span>
+    </div>
+
+    <div class="cal-mo">
+      <div class="cal-hd"><div class="cal-hd-name">Junio 2026</div><span class="cal-hd-tag">Mes 1 · Lanzamiento</span></div>
+
+      <div class="cal-row noa-row">
+        <div><div class="cr-week">15 Jun</div><div class="cr-type" style="color:var(--blue)">NOA Talks #1</div><div class="cr-type">Pág. Randstad<br>+ Mail</div></div>
+        <div>
+          <div class="cr-series noa">NOA Talks #1 · Newsletter desde Randstad <span class="noa-badge">Página Randstad</span></div>
+          <div class="cr-title">Las mujeres que están transformando la minería en el NOA</div>
+          <div class="cr-hook">"Hoy es el Día Internacional de la Mujer en la Minería. En el NOA eso no es solo una fecha — es una tendencia real que está cambiando la industria. Salta, Jujuy y Catamarca concentran algunos de los proyectos de litio más importantes del mundo. Y cada vez más, las mujeres están en el centro de eso. Lo que estamos viendo desde el campo, con datos reales de la región..."</div>
+          <div class="cr-tags"><span class="tag">#NOATalks</span><span class="tag">#MujeresEnMinería</span><span class="tag">#Litio</span><span class="tag">#NOA</span><span class="tag">#RandstadArgentina</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Sem. 3</div><div class="cr-type">Post 1<br>Gancho mes</div></div>
+        <div>
+          <div class="cr-series">Gancho del mes · Contenido institucional desde Randstad</div>
+          <div class="cr-hook">Replicar contenido institucional que Randstad Argentina genera ese mes (Workmonitor, informe de mercado, dato de employer branding) adaptado con contexto del NOA.</div>
+          <div class="cr-tags"><span class="tag">#RandstadArgentina</span><span class="tag">#MercadoLaboral</span><span class="tag">#NOA</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Sem. 4<br>~26 jun</div><div class="cr-type">Post 2<br>Reflexión</div></div>
+        <div>
+          <div class="cr-series">Posicionamiento en el NOA</div>
+          <div class="cr-title">Randstad en el NOA</div>
+          <div class="cr-hook">"Cuando digo que trabajo en el mercado laboral del norte argentino, la primera reacción suele ser sorpresa: '¿Y desde dónde lo hacés?' Desde acá. Recorriendo las provincias, hablando con empresas, entendiendo qué buscan y qué no encuentran. El NOA está en el centro de la transformación productiva del país — y Randstad quiere estar en el centro de eso con presencia real."</div>
+          <div class="cr-tags"><span class="tag">#RandstadArgentina</span><span class="tag">#NOA</span><span class="tag">#PresenciaLocal</span><span class="tag">#TalentoRegional</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Últ. sem<br>~30 jun</div><div class="cr-type">Post 3<br>Campo</div></div>
+        <div>
+          <div class="cr-series">Storytelling de campo</div>
+          <div class="cr-title">3 cosas que aprendí de buscar talento desde el NOA</div>
+          <div class="cr-hook">"No vine con respuestas — vine con preguntas. Me reuní con [tipo de empresa, sin nombre] y lo que me contaron sobre cómo gestionan el talento me hizo pensar. Tres observaciones del mercado laboral del NOA que creo que vale la pena compartir con quienes trabajan en RRHH en la región..."</div>
+          <div class="cr-tags"><span class="tag">#NOA</span><span class="tag">#RRHH</span><span class="tag">#MercadoLaboral</span><span class="tag">#RandstadArgentina</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JULIO -->
+  <div id="mo-jul" class="monthblock">
+    <div class="gancho">
+      <strong>Gancho del mes — Julio</strong>
+      <span>¿Qué buscan hoy las empresas del NOA al contratar talento? · Perfiles más demandados · Brechas de talento en la región</span>
+    </div>
+
+    <div class="cal-mo">
+      <div class="cal-hd"><div class="cal-hd-name">Julio 2026</div><span class="cal-hd-tag">Mes 2 · Minería y perfiles</span></div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Sem. 1<br>~3 jul</div><div class="cr-type">Post 1<br>Dato mercado</div></div>
+        <div>
+          <div class="cr-series">Dato del mercado</div>
+          <div class="cr-title">Los perfiles más demandados en el NOA hoy</div>
+          <div class="cr-hook">"Desde Randstad relevamos qué posiciones son las más difíciles de cubrir en Salta, Jujuy, Tucumán y Catamarca hoy — y por qué esa brecha importa más de lo que parece..."</div>
+          <div class="cr-tags"><span class="tag">#MercadoLaboralNOA</span><span class="tag">#Perfiles</span><span class="tag">#TalentoTécnico</span><span class="tag">#RandstadArgentina</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Sem. 2<br>~10 jul</div><div class="cr-type">Post 2<br>Gancho mes</div></div>
+        <div>
+          <div class="cr-series">Posicionamiento en el NOA</div>
+          <div class="cr-title">Gancho del mes julio</div>
+          <div class="cr-tags"><span class="tag">#RandstadArgentina</span><span class="tag">#NOA</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row noa-row">
+        <div><div class="cr-week">Sem. 3<br>~17 jul</div><div class="cr-type" style="color:var(--blue)">NOA Talks #2</div><div class="cr-type">Pág. Randstad<br>+ Mail</div></div>
+        <div>
+          <div class="cr-series noa">NOA Talks #2 · Newsletter desde Randstad <span class="noa-badge">Página Randstad</span></div>
+          <div class="cr-title">¿Qué buscan hoy las empresas del NOA al contratar talento?</div>
+          <div class="cr-hook">"En esta edición de NOA Talks analizamos las tendencias de contratación en el norte argentino: qué industrias están contratando más, qué valoran las empresas al elegir candidatos, y cómo está cambiando el perfil del talento que necesita la región. Con datos reales de búsquedas activas desde Randstad y el contexto del momento productivo que vive el NOA..."</div>
+          <div class="cr-tags"><span class="tag">#NOATalks</span><span class="tag">#Contratación</span><span class="tag">#TalentoNOA</span><span class="tag">#RandstadArgentina</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Sem. 4<br>~24 jul</div><div class="cr-type">Post 3<br>Testimonio</div></div>
+        <div>
+          <div class="cr-series">Testimonio de candidato</div>
+          <div class="cr-hook">"Cuando llegó a Randstad me dijo que estaba pensando en irse del NOA porque no encontraba oportunidades. Lo que pasó después me recuerda por qué vale la pena trabajar este mercado desde adentro. [Historia del proceso — adaptar con el caso real disponible]. El talento en el norte existe. A veces solo necesita que alguien lo vea."</div>
+          <div class="cr-tags"><span class="tag">#Testimonio</span><span class="tag">#TalentoNOA</span><span class="tag">#Empleabilidad</span><span class="tag">#RandstadArgentina</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AGOSTO -->
+  <div id="mo-ago" class="monthblock">
+    <div class="gancho">
+      <strong>Gancho del mes — Agosto</strong>
+      <span>El agro también está cambiando · Cosecha de caña de azúcar en Tucumán (pico de temporada) · Evento desayuno en Salta</span>
+    </div>
+
+    <div class="cal-mo">
+      <div class="cal-hd"><div class="cal-hd-name">Agosto 2026</div><span class="cal-hd-tag">Mes 3 · Agro + Primer evento</span></div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Sem. 1<br>~7 ago</div><div class="cr-type">Post 1<br>Dato mercado</div></div>
+        <div>
+          <div class="cr-series">Dato del mercado · Agroindustria</div>
+          <div class="cr-title">Agosto es el mes más intenso para la agroindustria del NOA. ¿Están las empresas preparadas para gestionarlo?</div>
+          <div class="cr-hook">"La cosecha de caña de azúcar en Tucumán está en su pico. Miles de personas trabajando, plantas procesando sin parar, logística al límite. Es el momento del año en que la demanda de personal operativo explota — y también el momento en que más errores de contratación se cometen por la urgencia. Lo que vemos desde Randstad en esta época del año en el NOA..."</div>
+          <div class="cr-tags"><span class="tag">#Agroindustria</span><span class="tag">#Tucumán</span><span class="tag">#NOA</span><span class="tag">#GestiónDelTalento</span><span class="tag">#RandstadArgentina</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row">
+        <div><div class="cr-week">Sem. 2<br>~14 ago</div><div class="cr-type">Post 2<br>Gancho mes</div></div>
+        <div>
+          <div class="cr-series">Gancho del mes</div>
+          <div class="cr-tags"><span class="tag">#RandstadArgentina</span><span class="tag">#NOA</span></div>
+        </div>
+      </div>
+
+      <div class="cal-row noa-row">
+        <div><div class="cr-week">Sem. 3<br>~21 ago</div><div class="cr-type" style="color:var(--blue)">NOA Talks #3</div><div class="cr-type">Pág. Randstad<br>+ Mail</div></div>
+        <div>
+          <div class="cr-series noa">NOA Talks #3 · Newsletter desde Randstad <span class="noa-badge">Página Randstad</span></div>
+          <div class="cr-title">El agro también está cambiando: talento y transformación en la agroindustria del NOA</div>
+          <div class="cr-hook">"La agroindustria es el motor histórico del NOA. Pero el sector está cambiando más rápido de lo que parece: nuevas tecnologías, nuevos perfiles, nuevas demandas de gestión del talento. En esta edición de NOA Talks analizamos qué está pasando en Tucumán, Salta y Santiago del Estero — con datos de temporada, tendencias de contratación y lo que aprendimos en el desayuno de trabajo de agosto en Salta..."</div>
+          <div class="cr-tags"><span class="tag">#NOATalks</span><span class="tag">#Agroindustria</span><span class="tag">#NOA</span><span class="tag">#TalentoRegional</span><span class="tag">#RandstadArgentina</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="pf"><span>Randstad Argentina · Plan Comercial y Posicionamiento NOA</span><span>Junio 2026</span></div>
+</div>
+
+
+<!-- ══════════════════════════════════════
+     P5 · ANÁLISIS
+══════════════════════════════════════ -->
+<div id="p5" class="page">
+
+  <div class="sh">
+    <h1>Análisis estratégico del mercado</h1>
+    <p>Oportunidades y amenazas externas para las dos primeras fases de la estrategia.</p>
+  </div>
+
+  <div class="sh" style="margin-top:.5rem">
+    <h1>Oportunidades</h1>
+  </div>
+
+  <div class="g2">
+    <div class="cl cl-teal" style="margin-bottom:10px">
+      <div class="cl-ti">1 — Vacío de referentes regionales en RRHH</div>
+      <div class="cl-bo">No existe ninguna consultora de RRHH con voz, contenido y presencia digital activa en el NOA. El mercado está dominado por relaciones históricas informales y consultoras locales pequeñas. Quien llegue primero con contenido consistente y de valor ocupa ese espacio de forma duradera.</div>
+    </div>
+    <div class="cl cl-teal" style="margin-bottom:10px">
+      <div class="cl-ti">2 — Boom productivo con escasez de talento</div>
+      <div class="cl-bo">USD 7.705M en inversiones generan demanda de perfiles que el mercado local no puede cubrir solo. Las empresas que llegan al NOA necesitan un socio que entienda la región. Randstad tiene la metodología — le falta la visibilidad local.</div>
+    </div>
+    <div class="cl cl-teal" style="margin-bottom:10px">
+      <div class="cl-ti">3 — Catamarca y La Rioja sin competencia organizada</div>
+      <div class="cl-bo">Son los dos mercados del NOA sin consultoras de RRHH relevantes identificadas. Catamarca tiene el proyecto minero Agua Rica (Glencore) activo. Llegar primero ahí no requiere competir — requiere aparecer con consistencia.</div>
+    </div>
+    <div class="cl cl-teal" style="margin-bottom:10px">
+      <div class="cl-ti">4 — Crisis empresarial como puerta de entrada</div>
+      <div class="cl-bo">El cierre de 745 empresas en el NOA generó necesidad de outplacement, transición de carrera y asesoría en gestión del talento. Todos servicios de Randstad que ninguna consultora local ofrece de forma estructurada.</div>
+    </div>
+    <div class="cl cl-teal" style="margin-bottom:10px">
+      <div class="cl-ti">5 — Alianzas universitarias disponibles</div>
+      <div class="cl-bo">Las universidades del NOA (UNSA, UNJu, UNT, UCASAL) tienen poca conexión con el mercado real. Randstad puede entrar como referente de industria, no como proveedor. La Feria de Empleo UCASAL es el primer paso concreto.</div>
+    </div>
+    <div class="cl cl-teal" style="margin-bottom:10px">
+      <div class="cl-ti">6 — Fechas industriales sin contenido de marca empleadora</div>
+      <div class="cl-bo">Ninguna consultora del NOA publica contenido en el Día del Trabajador Minero (28/10), el Día del Trabajador Rural (8/10) o el Día de la Industria (2/9). Cada una de esas fechas es un espacio libre para que Randstad lo ocupe primero.</div>
+    </div>
+  </div>
+
+  <div class="sh" style="margin-top:1rem">
+    <h1>Amenazas externas</h1>
+  </div>
+
+  <div class="g2">
+    <div class="cl cl-red" style="margin-bottom:10px">
+      <div class="cl-ti">1 — Consultoras locales con relaciones históricas</div>
+      <div class="cl-bo">Capital Humano Salta, SEL Consultora y la red de contactos informales llevan años con las empresas del NOA. La confianza en el interior se construye despacio. Randstad no puede competir en historia — puede competir en metodología, datos y visibilidad digital.</div>
+    </div>
+    <div class="cl cl-red" style="margin-bottom:10px">
+      <div class="cl-ti">2 — Percepción de "empresa porteña"</div>
+      <div class="cl-bo">La percepción de que Randstad atiende desde Buenos Aires es real. Cada post desde una ciudad del NOA, cada mención de una empresa regional y cada aparición en un evento local desmiente esa percepción mejor que cualquier declaración.</div>
+    </div>
+    <div class="cl cl-red" style="margin-bottom:10px">
+      <div class="cl-ti">3 — Volatilidad de proyectos mineros y energéticos</div>
+      <div class="cl-bo">Los proyectos del RIGI pueden frenarse por cambios regulatorios o precios de commodities. La estrategia de contenido no debe depender exclusivamente del boom minero — la agroindustria y el comercio son los sectores más estables del NOA.</div>
+    </div>
+    <div class="cl cl-red" style="margin-bottom:10px">
+      <div class="cl-ti">4 — Contexto macroeconómico inestable</div>
+      <div class="cl-bo">Un deterioro económico puede frenar contrataciones. Pero en contextos de crisis también aumenta la demanda de outplacement y transición de carrera — servicios que son oportunidad en cualquier escenario para Randstad.</div>
+    </div>
+  </div>
+
+  <div class="pf"><span>Randstad Argentina · Plan Comercial y Posicionamiento NOA</span><span>Junio 2026</span></div>
+</div>
+
+<script>
+function go(id,btn){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function showMo(id,btn){
+  document.querySelectorAll('.monthblock').forEach(m=>m.classList.remove('active'));
+  document.querySelectorAll('.mn').forEach(b=>b.classList.remove('active'));
+  document.getElementById('mo-'+id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+</body>
+</html>
